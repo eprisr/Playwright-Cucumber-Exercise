@@ -47,8 +47,8 @@ It is not expected that you complete every task, however, please give your best 
 
 You will be scored based on your ability to complete the following tasks:
 
-- [ ] Install and setup this repository on your personal computer
-- [ ] Complete the automation tasks listed below
+- [x] Install and setup this repository on your personal computer
+- [-] Complete the automation tasks listed below
 
 ### Tasks
 - [ ] Modify the scenario 'Validate the login page title' from [login.feature](features/login.feature#8) which runs but fails. Determine the cause of the failure and update the scenario to pass in the test
