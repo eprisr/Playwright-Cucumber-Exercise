@@ -5,9 +5,17 @@ export class Product {
     private readonly addToCart: string = 'button[id="add-to-cart-sauce-labs-backpack"]'
     private readonly sortDropdown: string = 'select[data-test="product-sort-container"]'
     private readonly itemPrice: string = 'div[data-test="inventory-item-price"]'
+    private readonly pageHeader: string = 'span[data-test="title"]'
 
     constructor(page: Page) {
         this.page = page;
+    }
+
+    public async validatePageHeader(expectedHeader: string) {
+        const pageHeader = await this.page.locator(this.pageHeader).textContent()
+        if (pageHeader !== expectedHeader) {
+            throw new Error(`Expected page header to be ${expectedHeader} but found ${pageHeader}`)
+        }
     }
 
     public async addBackPackToCart() {
