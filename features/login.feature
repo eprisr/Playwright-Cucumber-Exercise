@@ -27,3 +27,13 @@ Feature: Login Feature
     | locked out user  | locked_out_user | Epic sadface: Sorry, this user has been locked out.                        |
     | unknown user     | invalid_user    | Epic sadface: Username and password do not match any user in this service  |
     | missing username |                 | Epic sadface: Username is required                                         |
+
+  Scenario Outline: Validate incorrect password error message for <description>
+    Then I will login as '<user>' with password '<password>'
+    Then I should receive the error "<error>"
+  Examples:
+    | description             | user            | password     | error                                                                      |
+    | wrong password          | standard_user   | wrong_sauce  | Epic sadface: Username and password do not match any user in this service  |
+    | wrong password case     | standard_user   | SECRET_SAUCE | Epic sadface: Username and password do not match any user in this service  |
+    | missing password        | standard_user   |              | Epic sadface: Password is required                                         |
+    | locked out user         | locked_out_user | wrong_sauce  | Epic sadface: Username and password do not match any user in this service  |

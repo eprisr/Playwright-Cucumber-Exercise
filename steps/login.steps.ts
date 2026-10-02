@@ -10,6 +10,10 @@ Then('I will login as {string}', async (userName) => {
   await new Login(getPage()).loginAsUser(userName);
 });
 
+Then('I will login as {string} with password {string}', async (userName, password) => {
+  await new Login(getPage()).loginAsUser(userName, password);
+});
+
 Then('I should receive the error {string}', async (expectedError) => {
   await new Login(getPage()).validateErrorMessage(expectedError);
 });
